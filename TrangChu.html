@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt Vé Xe Khách</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-3">
+      <div class="container">
+        <a class="navbar-brand" href="TrangChu.html">🚍 Vé Xe Online</a>
+        <div>
+          <a href="TaiKhoan.html" class="btn btn-light rounded-pill"
+            >👤 Tài khoản</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>Đặt vé xe khách dễ dàng, tiện lợi</h1>
+        <div class="search-box mt-4">
+          <form class="row g-3" action="TimKiem.html">
+            <div class="col-md-4">
+              <input
+                class="form-control form-control-lg"
+                name="diemDi"
+                placeholder="🚏 Điểm đi"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                class="form-control form-control-lg"
+                name="diemDen"
+                placeholder="🎯 Điểm đến"
+                required
+              />
+            </div>
+            <div class="col-md-3">
+              <input
+                type="date"
+                class="form-control form-control-lg"
+                name="ngayDi"
+                required
+              />
+            </div>
+            <div class="col-md-1 d-grid">
+              <button class="btn btn-success btn-lg">🔍</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="container my-5">
+      <h2 class="text-primary fw-bold mb-4">🌟 Chuyến xe nổi bật</h2>
+      <div class="row g-4" id="featured-routes">
+        <!-- Render by JS -->
+      </div>
+    </section>
+
+    <footer>© 2025 Vé Xe Online. All rights reserved.</footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
