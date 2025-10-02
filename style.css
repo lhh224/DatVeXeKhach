@@ -6,11 +6,17 @@ body {
 }
 
 /* ======= GLOBAL ======= */
-img { max-width: 100%; display: block; }
-.container { max-width: 1140px; }
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  max-width: 1140px;
+}
 
 /* Smooth focus */
-.form-control:focus, .btn:focus {
+.form-control:focus,
+.btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
@@ -19,7 +25,9 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   font-size: 1.6rem;
 }
-.navbar { box-shadow: 0 4px 18px rgba(13, 110, 253, 0.18); }
+.navbar {
+  box-shadow: 0 4px 18px rgba(13, 110, 253, 0.18);
+}
 
 /* ======= HERO ======= */
 .hero {
@@ -40,7 +48,9 @@ img { max-width: 100%; display: block; }
   padding: 25px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-.hero .form-control-lg { height: 52px; }
+.hero .form-control-lg {
+  height: 52px;
+}
 
 /* ======= CARD CHUYẾN XE ======= */
 .card {
@@ -61,7 +71,9 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   color: #0d6efd;
 }
-.card-text { color: #495057; }
+.card-text {
+  color: #495057;
+}
 
 /* ======= NÚT ======= */
 .btn-primary,
@@ -75,29 +87,44 @@ img { max-width: 100%; display: block; }
 .btn-success:hover {
   transform: scale(1.05);
 }
-.btn-light { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.btn-light {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 
 /* ======= SEAT MAP ======= */
+
 #seat-map {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 .seat-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 12px;
+  gap: 10px;
 }
-.seat-group { display: flex; gap: 12px; }
+.seat-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .aisle {
-  width: 28px;
-  height: 8px;
-  background: repeating-linear-gradient(90deg, #dee2e6 0 6px, transparent 6px 12px);
+  width: 8px;
+  height: 28px;
+  background: repeating-linear-gradient(
+    180deg,
+    #dee2e6 0 6px,
+    transparent 6px 12px
+  );
   border-radius: 6px;
-  margin: 0 6px;
+  margin: 6px 0;
 }
 .seat {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
   background: linear-gradient(145deg, #1ca769, #0f7f4e);
   color: #fff;
@@ -108,20 +135,23 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   position: relative;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  margin: 0;
 }
 .seat::before {
   content: "";
   position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  height: 6px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 6px;
   border-radius: 6px;
-  background: rgba(255,255,255,0.55);
+  background: rgba(255, 255, 255, 0.55);
 }
-.seat:hover { transform: translateY(-2px); }
+.seat:hover {
+  transform: translateX(-2px);
+}
 .seat.booked {
   background: #6c757d;
   box-shadow: none;
@@ -131,13 +161,26 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(145deg, #ffc107, #ffb300);
   color: #000;
 }
-.seat.window { box-shadow: 0 0 0 2px rgba(13,110,253,0.25) inset; }
-.seat.aisle-side { box-shadow: 0 0 0 2px rgba(255,193,7,0.25) inset; }
+.seat.window {
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25) inset;
+}
+.seat.aisle-side {
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.25) inset;
+}
 
 /* ======= TABLES ======= */
-.table { border-radius: 10px; overflow: hidden; }
-.table thead th { background: #f1f5ff; color: #0d6efd; font-weight: 700; }
-.table-striped>tbody>tr:nth-of-type(odd)>* { background-color: #f8fbff; }
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.table thead th {
+  background: #f1f5ff;
+  color: #0d6efd;
+  font-weight: 700;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: #f8fbff;
+}
 
 /* ======= FOOTER ======= */
 footer {
@@ -147,4 +190,7 @@ footer {
   padding: 20px 0;
   margin-top: 50px;
 }
-footer a { color: #fff; text-decoration: underline; }
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}

@@ -75,10 +75,9 @@ window.addEventListener("DOMContentLoaded", () => {
     // giả lập danh sách ghế đã đặt (layout 2-aisle-2)
     const bookedSeats = new Set(["1B", "3C", "6D"]);
 
-    // layout: 8 hàng (1-8), 2 ghế - lối đi - 2 ghế
+    // layout ngang: 8 hàng (1-8), mỗi hàng là 1 seat-row, mỗi seat-row chứa 2 ghế trái, lối đi, 2 ghế phải
     const rows = [1, 2, 3, 4, 5, 6, 7, 8];
-    const leftCols = ["A", "B"]; // A: cửa sổ trái, B: gần lối đi
-    const rightCols = ["C", "D"]; // C: gần lối đi, D: cửa sổ phải
+    const cols = ["A", "B", "C", "D"]; // A: cửa sổ trái, B: gần lối đi, C: gần lối đi, D: cửa sổ phải
     const selected = new Set();
 
     function seatSideClass(col) {
@@ -89,23 +88,29 @@ window.addEventListener("DOMContentLoaded", () => {
 
     seatMapEl.innerHTML = rows
       .map((r) => {
-        const left = leftCols
-          .map((col) => {
-            const code = `${r}${col}`;
-            const state = bookedSeats.has(code) ? " booked" : "";
-            const extra = seatSideClass(col);
-            return `<div class="seat${state}${extra}" data-seat="${code}" title="Ghế ${code}">${code}</div>`;
-          })
-          .join("");
-        const right = rightCols
-          .map((col) => {
-            const code = `${r}${col}`;
-            const state = bookedSeats.has(code) ? " booked" : "";
-            const extra = seatSideClass(col);
-            return `<div class="seat${state}${extra}" data-seat="${code}" title="Ghế ${code}">${code}</div>`;
-          })
-          .join("");
-        return `<div class="seat-row"><div class="seat-group">${left}</div><div class="aisle"></div><div class="seat-group">${right}</div></div>`;
+        // Mỗi hàng là 1 seat-row, các ghế xếp ngang
+        return `<div class="seat-row">
+          <div class="seat-group" style="flex-direction: row; gap: 8px;">
+            ${cols
+              .map((col, idx) => {
+                if (col === "C") {
+                  // Thêm lối đi trước ghế C
+                  return `<div class="aisle"></div><div class="seat${
+                    bookedSeats.has(`${r}${col}`) ? " booked" : ""
+                  }${seatSideClass(
+                    col
+                  )}" data-seat="${r}${col}" title="Ghế ${r}${col}">${r}${col}</div>`;
+                }
+                const code = `${r}${col}`;
+                return `<div class="seat${
+                  bookedSeats.has(code) ? " booked" : ""
+                }${seatSideClass(
+                  col
+                )}" data-seat="${code}" title="Ghế ${code}">${code}</div>`;
+              })
+              .join("")}
+          </div>
+        </div>`;
       })
       .join("");
 
